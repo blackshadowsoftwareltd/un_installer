@@ -1,8 +1,9 @@
 pub mod installed;
-pub mod un_install;
+pub mod un_install_linux;
+pub mod un_install_windows;
 
 #[cfg(target_os = "windows")]
-use un_install::uninstall_windows_app;
+use un_install_windows::uninstall_windows_app;
 
 #[cfg(test)]
 mod tests {
