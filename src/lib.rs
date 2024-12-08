@@ -23,7 +23,12 @@ pub fn un_install_desktop_app(_app_name: &str) -> Result<String, String> {
         Ok(_) => Ok(format!("{} Uninstalled Successfully", _app_name)),
         Err(e) => Err(format!("{:?}", e)),
     }
+    #[cfg(target_os = "linux")]
+    match uninstall_linux_app(&_app_name) {
+        Ok(_) => Ok(format!("{} Uninstalled Successfully", _app_name)),
+        Err(e) => Err(format!("{:?}", e)),
+    }
 
-    #[cfg(not(target_os = "windows"))]
+    #[cfg(target_os = "macos")]
     Err("This platform is not supported.".to_string())
 }
