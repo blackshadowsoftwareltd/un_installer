@@ -2,6 +2,7 @@ pub mod installed;
 pub mod un_install_linux;
 pub mod un_install_windows;
 
+use un_install_linux::uninstall_linux_app;
 #[cfg(target_os = "windows")]
 use un_install_windows::uninstall_windows_app;
 

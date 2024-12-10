@@ -1,12 +1,10 @@
 #[cfg(target_os = "linux")]
 use std::error::Error;
 #[cfg(target_os = "linux")]
-use std::process::Command;
-#[cfg(target_os = "linux")]
 use std::process::{exit, Command};
 
 #[cfg(target_os = "linux")]
-fn uninstall_linux_app(app_name: &str) -> Result<(), String> {
+pub fn uninstall_linux_app(app_name: &str) -> Result<(), String> {
     // First, try to uninstall using DNF
     if let Err(e) = uninstall_via_dnf(app_name) {
         eprintln!("{}", e);
