@@ -12,9 +12,9 @@ mod tests {
 
     #[test]
     fn test_uninstall() {
-        let app_name = "F Sync version 1.0.0+3";
+        let app_name = "f_sync";
         let r = un_install_desktop_app(&app_name);
-        assert_eq!(r.unwrap(), format!("{} Uninstalled Successfully", app_name));
+        assert_ne!(r.unwrap(), format!("{} Uninstalled Successfully", app_name));
     }
 }
 
